@@ -1,5 +1,3 @@
-#!/bin/bash
-#date  2014-01-15
 #author Regend
 
 libdir="/src"
@@ -23,7 +21,7 @@ do
 	unzip -o $file_name_s
 	rm -rf $file_name_s
 	
-	./app/$1/resin-pro-3.1.8/bin/httpd_resin_autoprice5.sh restart
+	./app/$1/resin-pro-3.1.8/bin/httpd_resin_$1.sh restart
 	
 	cl 11211
 fi
