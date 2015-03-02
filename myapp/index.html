@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>接口url生成工具</title>
+</head>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="css/messenger.css" rel="stylesheet">
+<link href="css/messenger-theme-future.css" rel="stylesheet">
+<link href="css/gototop.css" rel="stylesheet">
+
+<body>
+
+<form id = 'newform' action="" method="" class="form-horizontal">
+    <fieldset>
+        <div id="legend" class="" align = 'center'>
+            <legend class="">接口url生成工具v1.1</legend>
+            <div class="btn-group" data-toggle="buttons-radio">
+                <button id = 'btnget' type="button" class="btn btn-primary">GET</button>
+                <button id = 'btnpost' type="button" class="btn btn-primary">POST</button>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button id = 'make1' class="btn btn-primary">确认</button>
+                <button id = 'clear1' class="btn btn-warning">重置</button>
+            </div>
+        </div>
+        <div class="control-group">
+
+            <!-- Text input-->
+            <label class="control-label" for="input01">接口地址</label>
+
+            <div class="controls">
+                <input id = 'url' type="text" placeholder="例如：http://www.pcauto.com.cn" class="input-xlarge">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+            <div class="controls">
+                <input id = '1' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post1' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+
+            <div class="controls">
+                <input id = '2' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post2' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+
+            <div class="controls">
+                <input id = '3' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post3' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+
+            <div class="controls">
+                <input id = '4' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post4' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+
+            <div class="controls">
+                <input id = '5' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post5' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+
+            <div class="controls">
+                <input id = '6' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post6' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+
+            <div class="controls">
+                <input id = '7' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post7' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">参数</label>
+
+            <div class="controls">
+                <input id = '8' type="text" placeholder="例如：refresh=true" class="input-xlarge">
+                <input id = 'post8' type="text" placeholder="例如：refresh=true" class="input-xlarge" disabled = 'disabled'>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button id = 'make2' class="btn btn-primary">确认</button>
+                <button id = 'clear2' class="btn btn-warning">重置</button>
+            </div>
+        </div>
+        <input id = 'method' type="hidden" value="1">
+    </fieldset>
+</form>
+<div>
+    <a id="add" href="#" style="position: fixed; z-index: 2147483647; display: block;" title="添加元素"></a>
+</div>
+<script src="js/jQuery/jquery-1.9.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/messenger.min.js"></script>
+<script src="js/gototop.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //初始化弹窗
+        $._messengerDefaults = {
+            extraClasses: 'messenger-fixed messenger-theme-future messenger-on-bottom'
+        }
+
+        //初始化提交方法
+        var method = $("input:hidden");
+        $("#btnget").click(function(){
+            method.attr("value","get");
+            $("[id^='post']").attr("disabled",'');
+            alert(method.val());
+        })
+
+        $("#btnpost").click(function(){
+            method.attr("value","post");
+            alert(method.val());
+        })
+
+        //处理url
+        function makeURL(){
+            var urlbase = ($("#url").val()).substring(0,4);
+            var text1='';if(!$("#1").val()==''){text1 =$("#1").val()+'&';}
+            var text2='';if(!$("#2").val()==''){text2 =$("#2").val()+'&';}
+            var text3='';if(!$("#3").val()==''){text3 =$("#3").val()+'&';}
+            var text4='';if(!$("#4").val()==''){text4 =$("#4").val()+'&';}
+            var text5='';if(!$("#5").val()==''){text5 =$("#5").val()+'&';}
+            var text6='';if(!$("#6").val()==''){text6 =$("#6").val()+'&';}
+            var text7='';if(!$("#7").val()==''){text7 =$("#7").val()+'&';}
+            var text8='';if(!$("#8").val()==''){text8 =$("#8").val()+'&';}
+            if(urlbase=='http'){
+                var url = $("#url").val()+'?'+text1+text2+text3+text4+text5+text6+text7+text8;
+            }
+            else{
+                var url = 'http://'+$("#url").val()+'?'+text1+text2+text3+text4+text5+text6+text7+text8;
+            }
+            url = url.substring(0,url.length-1);
+            $.globalMessenger().post('您生成的url是: '+url);
+            return url;
+        }
+
+
+        $(":text").change(function(){
+            makeURL();
+        })
+
+        $("#make1").click(function(){
+//            window.open(makeURL());
+            return false;
+        })
+
+        $("#make2").click(function(){
+            window.open(makeURL());
+            return false;
+        })
+
+        $("[id='.clear']").click(function(){
+            $(":text").val();
+        })
+
+        $(function(){
+            document.onkeydown = function(e){
+                var ev = document.all ? window.event : e;
+                if(ev.keyCode==13) {
+                    window.open(makeURL());
+                    return false;
+                }
+            }
+        });
+
+        $.scrollUp({
+            scrollName: 'scrollUp', // Element ID
+            topDistance: '300', // Distance from top before showing element (px)
+            topSpeed: 300, // Speed back to top (ms)
+            animation: 'fade', // Fade, slide, none
+            animationInSpeed: 200, // Animation in speed (ms)
+            animationOutSpeed: 200, // Animation out speed (ms)
+            scrollText: '', // Text for element
+            activeOverlay: true  // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+        });
+
+
+    })
+</script>
+
+</body>
+
+</html>

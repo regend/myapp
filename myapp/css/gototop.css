@@ -1,0 +1,16 @@
+
+#scrollUp {
+    bottom: 20px;
+    right: 200px;
+    height: 64px;
+    width: 64px;
+    background: url("../images/up_arrow.png") no-repeat
+}
+
+#add {
+    bottom: 380px;
+    right: 1350px;
+    height: 64px;
+    width: 64px;
+    background: url("../images/add.png") no-repeat
+}

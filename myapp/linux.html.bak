@@ -1,0 +1,4 @@
+/app/autoprice5/resin-3.1.8/bin/httpd_resin_autoprice5.sh stop
+rm -rf /app/autoprice5/web.bak
+cp -r /app/autoprice5/web /app/autoprice5/web.bak
+/app/autoprice5/resin-3.1.8/bin/httpd_resin_autoprice5.sh start
